@@ -5,7 +5,9 @@ export const FILMS_DATA = "FILMS/DATA";
 export const getFilmsData = (films) => {
   return {
     type: FILMS_DATA,
-    payload: {films} ,
+    payload: {
+      films,
+    },
   };
 };
 

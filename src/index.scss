@@ -72,13 +72,14 @@ body {
     padding: 6px;
     border-radius: 2px;
     height: 30px;
+    max-width: 400px;
     font-size: 15px;
   }
 
   &__img {
     object-fit: cover;
-    width: auto;
-    height: auto;
+    width: 400px;
+    height: 400px;
   }
 
   &__rating {
