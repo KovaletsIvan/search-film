@@ -3,9 +3,10 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 import SearchField from "./SearchField";
 import Content from "./Content";
+import { getData } from "../films.gatawey";
 
 const App = () => {
-  console.log(store.getState())
+  getData().then(resp=>console.log(resp))
   return (
     <div className="page">
       <Provider store={store}>

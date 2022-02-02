@@ -8,10 +8,12 @@ class Content extends React.Component {
   componentDidMount() {
     this.props.fetchData();
   }
+  
   render() {
+    console.log(this.props.filmsToRender)
     return (
       <div className="content">
-        <FilmInfo />
+        { this.props.filmsToRender.map(elem=> <FilmInfo key={elem.filmId} films={elem}/>) }
       </div>
     );
   }
@@ -26,4 +28,4 @@ const mapDispatch = {
   fetchData: recivedFilms,
 };
 
-export default connect(null, mapDispatch)(Content);
+export default connect(mapState, mapDispatch)(Content);
