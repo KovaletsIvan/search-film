@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { serchFilm } from "../films.actions";
 
-const SearchField = () => {
+const SearchField = (props) => {
   const [value, setValue] = useState("");
   return (
     <div className="serchfield">
@@ -12,10 +14,19 @@ const SearchField = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button className="serchfield__label-btn">Search</button>
+        <button
+          className="serchfield__label-btn"
+          onClick={()=>props.getFilm(value)}
+        >
+          Search
+        </button>
       </label>
     </div>
   );
 };
 
-export default SearchField;
+const mapDispatch = {
+  getFilm: serchFilm,
+};
+
+export default connect(null, mapDispatch)(SearchField);

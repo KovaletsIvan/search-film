@@ -6,7 +6,6 @@ import Content from "./Content";
 import { getData } from "../films.gatawey";
 
 const App = () => {
-  getData().then(resp=>console.log(resp))
   return (
     <div className="page">
       <Provider store={store}>
