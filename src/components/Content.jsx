@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { recivedFilms } from "../films.actions";
-import { getSearchedFilm, selectedFilms } from "../films.selectors";
+import { selectedFilms } from "../films.selectors";
 import FilmInfo from "./FilmInfo";
 
 class Content extends React.Component {
@@ -9,13 +9,9 @@ class Content extends React.Component {
     this.props.fetchData();
   }
   render() {
-    const dataToRender =
-      this.props.filmsToRender.length === 0
-        ? this.props.selectedFilms
-        : this.props.filmsToRender;
     return (
       <div className="content">
-        {dataToRender.map((elem) => (
+        {this.props.selectedFilms.map((elem) => (
           <FilmInfo key={elem.filmId} films={elem} />
         ))}
       </div>
@@ -24,7 +20,6 @@ class Content extends React.Component {
 }
 const mapState = (state) => {
   return {
-    filmsToRender: getSearchedFilm(state),
     selectedFilms: selectedFilms(state),
   };
 };

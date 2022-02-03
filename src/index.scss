@@ -65,6 +65,7 @@ body {
 }
 
 .filminfo {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -83,9 +84,18 @@ body {
   }
 
   &__img {
+    position: absolute;
+    z-index: 1;
     object-fit: cover;
     width: 400px;
     height: 400px;
+  }
+
+  // &__img:hover .description {
+  //   z-index: 2;
+  // }
+  &__img:hover {
+    display: none;
   }
 
   &__rating {
@@ -94,4 +104,11 @@ body {
     padding: 3px;
     border-radius: 2px;
   }
+}
+.description {
+  margin: 0;
+  width: 400px;
+  height: 400px;
+  background-color: lightgray;
+  padding: 6px;
 }

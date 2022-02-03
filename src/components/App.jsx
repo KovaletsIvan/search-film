@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 import SearchField from "./SearchField";
 import Content from "./Content";
-import { getData } from "../films.gatawey";
+
 
 const App = () => {
   return (

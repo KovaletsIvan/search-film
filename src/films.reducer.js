@@ -1,6 +1,10 @@
-import { FILMS_DATA, FILMS_SEARCH } from "./films.actions";
+import { FILMS_DATA, FILMS_SEARCH, FILMS_DESCRIPTION } from "./films.actions";
 
-const initialState = { films: [], searchedFilm: "" };
+const initialState = {
+  films: [],
+  searchedFilm: "",
+  description: "",
+};
 
 export const filmReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,6 +17,11 @@ export const filmReducer = (state = initialState, action) => {
       return {
         ...state,
         searchedFilm: action.payload.film,
+      };
+    case FILMS_DESCRIPTION:
+      return {
+        ...state,
+        description: action.payload.description,
       };
     default:
       return state;

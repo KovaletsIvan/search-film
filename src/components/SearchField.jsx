@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { serchFilm } from "../films.actions";
+import { getFilm } from "../films.actions";
 
 const SearchField = (props) => {
   const [value, setValue] = useState("");
@@ -26,7 +26,7 @@ const SearchField = (props) => {
 };
 
 const mapDispatch = {
-  getFilm: serchFilm,
+  getFilm: getFilm,
 };
 
 export default connect(null, mapDispatch)(SearchField);
