@@ -3,12 +3,14 @@ import { filmsByPage } from "../films.actions";
 import { connect } from "react-redux";
 import { selectedPagesCount } from "../films.selectors";
 
-const Pagination = (props) => {
+const Pagination = ({pagesCount, filmsByPage}) => {
   const [pages, setPages] = useState(1);
-  const buttonPriv = pages === 1 ? true : false;
-  const buttonNext = pages === props.pagesCount ? true : false;
+  useEffect(() => {
+    filmsByPage(pages);
+  }, [pages]);
 
-  useEffect(()=>{props.filmsByPage(pages)},[pages])
+  const buttonPriv = pages === 1 ? true : false;
+  const buttonNext = pages === pagesCount ? true : false;
 
   return (
     <div className="pagination">
@@ -38,7 +40,7 @@ const mapState = (state) => {
 };
 
 const mapDispatch = {
-    filmsByPage:filmsByPage
+  filmsByPage: filmsByPage,
 };
 
-export default connect(mapState,mapDispatch)(Pagination);
+export default connect(mapState, mapDispatch)(Pagination);
