@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getFilmDescription } from "../films.actions";
+import { getDescription } from "../films.gatawey";
 
 const FilmInfo = (props) => {
+  const [description, setDescription] = useState("");
   const { filmId, nameRu, posterUrlPreview, rating, year } = props.films;
 
   return (
     <div
       id={filmId}
       className="filminfo"
-      onMouseOver={props.getFilmDescription}
+      onMouseEnter={() =>
+        getDescription(filmId).then((resp) => setDescription(resp.description))
+      }
     >
       <img
         id={filmId}
@@ -18,7 +22,7 @@ const FilmInfo = (props) => {
         alt="img"
       />
       <p id={filmId} className="description">
-        {props.description}
+        {description}
       </p>
       <div id={filmId} className="filminfo__filmname">
         {`${nameRu} (${year})`}

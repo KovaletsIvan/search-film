@@ -26,13 +26,21 @@ export const getSearchedFilm = (str) => {
   ).then((res) => res.json());
 };
 
-export const getDescription = (e) =>
-  fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${e.target.id}`, {
+// export const getDescription = (e) =>
+//   fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${e.target.id}`, {
+//     method: "GET",
+//     headers: {
+//       "X-API-KEY": "dc880426-6653-4412-82d8-db5924942c67",
+//       "Content-Type": "application/json",
+//     },
+//   }).then((res) => res.json());
+
+export const getDescription = (id) =>
+  fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
     method: "GET",
     headers: {
       "X-API-KEY": "dc880426-6653-4412-82d8-db5924942c67",
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json());
-
-
+  })
+    .then((res) => res.json())
