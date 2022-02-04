@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { getFilmDescription } from "../films.actions";
 import { getDescription } from "../films.gatawey";
 
 const FilmInfo = (props) => {
@@ -40,8 +39,4 @@ const mapState = (state) => {
   };
 };
 
-const mapDespach = {
-  getFilmDescription: getFilmDescription,
-};
-
-export default connect(mapState, mapDespach)(FilmInfo);
+export default connect(mapState)(FilmInfo);

@@ -1,13 +1,8 @@
-import {
-  getData,
-  getDescription,
-  getSearchedFilm,
-  getFilmId,
-} from "./films.gatawey";
+import { getData, getSearchedFilm, getDataByPage } from "./films.gatawey";
 
 export const FILMS_DATA = "FILMS/DATA";
 export const FILMS_SEARCH = "FILMS/SEARCH,";
-export const FILMS_DESCRIPTION = "FILMS/DESCRIPTION";
+export const FILMS_PAGESCOUNT = "FILMS/PAGESCOUNT";
 
 export const getFilmsData = (films) => {
   return {
@@ -27,11 +22,11 @@ export const serchFilm = (film) => {
   };
 };
 
-export const filmDescription = (description) => {
+export const filmsPagesCount = (pagesCount) => {
   return {
-    type: FILMS_DESCRIPTION,
+    type: FILMS_PAGESCOUNT,
     payload: {
-      description,
+      pagesCount,
     },
   };
 };
@@ -43,6 +38,13 @@ export const recivedFilms = (date) => {
   return thunkAction;
 };
 
+export const recivedPages = (date) => {
+  const thunkAction = function (dispatch) {
+    getData(date).then((resp) => dispatch(filmsPagesCount(resp.pagesCount)));
+  };
+  return thunkAction;
+};
+
 export const getFilm = (str) => {
   const thunkAction = function (dispatch) {
     getSearchedFilm(str).then((resp) => dispatch(getFilmsData(resp.films)));
@@ -50,11 +52,9 @@ export const getFilm = (str) => {
   return thunkAction;
 };
 
-export const getFilmDescription = (getFilmId) => {
+export const filmsByPage = (page) => {
   const thunkAction = function (dispatch) {
-    getDescription(getFilmId).then((resp) =>
-      dispatch(filmDescription(resp.description))
-    );
+    getDataByPage(page).then((resp) => dispatch(getFilmsData(resp.films)));
   };
   return thunkAction;
 };

@@ -5,3 +5,7 @@ export const search = (state) => {
 export const selectedFilms = (state) => {
   return state.films;
 };
+
+export const selectedPagesCount = (state) => {
+  return state.pagesCount;
+};

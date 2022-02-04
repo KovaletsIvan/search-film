@@ -1,9 +1,9 @@
-import { FILMS_DATA, FILMS_SEARCH, FILMS_DESCRIPTION } from "./films.actions";
+import { FILMS_DATA, FILMS_SEARCH, FILMS_PAGESCOUNT } from "./films.actions";
 
 const initialState = {
+  pagesCount: 0,
   films: [],
   searchedFilm: "",
-  description: "",
 };
 
 export const filmReducer = (state = initialState, action) => {
@@ -18,10 +18,10 @@ export const filmReducer = (state = initialState, action) => {
         ...state,
         searchedFilm: action.payload.film,
       };
-    case FILMS_DESCRIPTION:
+    case FILMS_PAGESCOUNT:
       return {
         ...state,
-        description: action.payload.description,
+        pagesCount: action.payload.pagesCount,
       };
     default:
       return state;

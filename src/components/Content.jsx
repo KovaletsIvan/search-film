@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { recivedFilms } from "../films.actions";
+import { recivedFilms, recivedPages } from "../films.actions";
 import { selectedFilms } from "../films.selectors";
 import FilmInfo from "./FilmInfo";
+
 
 class Content extends React.Component {
   componentDidMount() {
     this.props.fetchData();
+    this.props.pages();
   }
   render() {
     return (
@@ -26,6 +28,7 @@ const mapState = (state) => {
 
 const mapDispatch = {
   fetchData: recivedFilms,
+  pages: recivedPages,
 };
 
 export default connect(mapState, mapDispatch)(Content);
