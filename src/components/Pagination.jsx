@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
+import {
+  Box,
+  CssBaseline,
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Container,
+} from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
 import { filmsByPage } from "../films.actions";
 import { connect } from "react-redux";
 import { selectedPagesCount } from "../films.selectors";
 
-const Pagination = ({pagesCount, filmsByPage}) => {
+const MyPagination = ({pagesCount, filmsByPage}) => {
   const [pages, setPages] = useState(1);
   useEffect(() => {
     filmsByPage(pages);
   }, [pages]);
 
-  const buttonPriv = pages === 1 ? true : false;
+  const buttonPriv = pages === 1 ? true : false
   const buttonNext = pages === pagesCount ? true : false;
 
   return (
@@ -43,4 +53,4 @@ const mapDispatch = {
   filmsByPage: filmsByPage,
 };
 
-export default connect(mapState, mapDispatch)(Pagination);
+export default connect(mapState, mapDispatch)(MyPagination);

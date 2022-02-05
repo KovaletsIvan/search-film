@@ -3,9 +3,9 @@ export const search = (state) => {
 };
 
 export const selectedFilms = (state) => {
-  return state.films;
+  return state.results;
 };
 
 export const selectedPagesCount = (state) => {
-  return state.pagesCount;
+  return state.total_pages;
 };

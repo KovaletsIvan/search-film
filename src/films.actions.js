@@ -4,57 +4,57 @@ export const FILMS_DATA = "FILMS/DATA";
 export const FILMS_SEARCH = "FILMS/SEARCH,";
 export const FILMS_PAGESCOUNT = "FILMS/PAGESCOUNT";
 
-export const getFilmsData = (films) => {
+export const getFilmsData = (results) => {
   return {
     type: FILMS_DATA,
     payload: {
-      films,
+      results,
     },
   };
 };
 
-export const serchFilm = (film) => {
+export const serchFilm = (results) => {
   return {
     type: FILMS_SEARCH,
     payload: {
-      film,
+      results,
     },
   };
 };
 
-export const filmsPagesCount = (pagesCount) => {
+export const filmsPagesCount = (total_pages) => {
   return {
     type: FILMS_PAGESCOUNT,
     payload: {
-      pagesCount,
+      total_pages,
     },
   };
 };
 
 export const recivedFilms = (date) => {
   const thunkAction = function (dispatch) {
-    getData(date).then((resp) => dispatch(getFilmsData(resp.films)));
+    getData(date).then((resp) => dispatch(getFilmsData(resp.results)));
   };
   return thunkAction;
 };
 
 export const recivedPages = (date) => {
   const thunkAction = function (dispatch) {
-    getData(date).then((resp) => dispatch(filmsPagesCount(resp.pagesCount)));
+    getData(date).then((resp) => dispatch(filmsPagesCount(resp.total_pages)));
   };
   return thunkAction;
 };
 
 export const getFilm = (str) => {
   const thunkAction = function (dispatch) {
-    getSearchedFilm(str).then((resp) => dispatch(getFilmsData(resp.films)));
+    getSearchedFilm(str).then((resp) => dispatch(getFilmsData(resp.results)));
   };
   return thunkAction;
 };
 
 export const filmsByPage = (page) => {
   const thunkAction = function (dispatch) {
-    getDataByPage(page).then((resp) => dispatch(getFilmsData(resp.films)));
+    getDataByPage(page).then((resp) => dispatch(getFilmsData(resp.results)));
   };
   return thunkAction;
 };

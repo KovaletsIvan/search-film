@@ -6,7 +6,7 @@ const SearchField = (props) => {
   const [value, setValue] = useState("");
   return (
     <div className="serchfield">
-      <label className="serchfield__label">
+      <div className="serchfield__label">
         <input
           className="serchfield__label-input"
           type="text"
@@ -20,7 +20,7 @@ const SearchField = (props) => {
         >
           Search
         </button>
-      </label>
+      </div>
     </div>
   );
 };

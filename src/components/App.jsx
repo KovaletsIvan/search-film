@@ -3,16 +3,15 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 import SearchField from "./SearchField";
 import Content from "./Content";
-import Pagination from "./Pagination";
+import MyPagination from "./Pagination";
 
 const App = () => {
-  console.log(store.getState());
   return (
     <div className="page">
       <Provider store={store}>
         <SearchField />
         <Content />
-        <Pagination />
+        <MyPagination />
       </Provider>
     </div>
   );

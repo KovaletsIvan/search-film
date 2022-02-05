@@ -1,8 +1,8 @@
 import { FILMS_DATA, FILMS_SEARCH, FILMS_PAGESCOUNT } from "./films.actions";
 
 const initialState = {
-  pagesCount: 0,
-  films: [],
+  total_pages: 0,
+  results: [],
   searchedFilm: "",
 };
 
@@ -11,17 +11,17 @@ export const filmReducer = (state = initialState, action) => {
     case FILMS_DATA:
       return {
         ...state,
-        films: action.payload.films,
+        results: action.payload.results,
       };
     case FILMS_SEARCH:
       return {
         ...state,
-        searchedFilm: action.payload.film,
+        searchedFilm: action.payload.results,
       };
     case FILMS_PAGESCOUNT:
       return {
         ...state,
-        pagesCount: action.payload.pagesCount,
+        total_pages: action.payload.total_pages,
       };
     default:
       return state;

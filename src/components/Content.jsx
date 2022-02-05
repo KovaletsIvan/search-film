@@ -10,11 +10,13 @@ class Content extends React.Component {
     this.props.fetchData();
     this.props.pages();
   }
+
   render() {
+    console.log(this.props)
     return (
       <div className="content">
         {this.props.selectedFilms.map((elem) => (
-          <FilmInfo key={elem.filmId} films={elem} />
+          <FilmInfo key={elem.id} films={elem} />
         ))}
       </div>
     );

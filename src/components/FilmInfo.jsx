@@ -1,32 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { getDescription } from "../films.gatawey";
 
 const FilmInfo = (props) => {
-  const [description, setDescription] = useState("");
-  const { filmId, nameRu, posterUrlPreview, rating, year } = props.films;
+  const {
+    id,
+    original_title,
+    backdrop_path,
+    vote_average,
+    release_date,
+    overview,
+  } = props.films;
 
   return (
-    <div
-      id={filmId}
-      className="filminfo"
-      onMouseEnter={() =>
-        getDescription(filmId).then((resp) => setDescription(resp.description))
-      }
-    >
+    <div id={id} className="filminfo">
       <img
-        id={filmId}
+        id={id}
         className="filminfo__img"
-        src={posterUrlPreview}
+        src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
         alt="img"
       />
-      <p id={filmId} className="description">
-        {description}
+      <p id={id} className="description">
+        {overview}
       </p>
-      <div id={filmId} className="filminfo__filmname">
-        {`${nameRu} (${year})`}
-        <span id={filmId} className="filminfo__rating">
-          {rating}
+      <div id={id} className="filminfo__filmname">
+        {`${original_title} (${new Date(release_date).getFullYear()})`}
+        <span id={id} className="filminfo__rating">
+          {vote_average}
         </span>
       </div>
     </div>
