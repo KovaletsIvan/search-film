@@ -4,7 +4,7 @@ import { filmsByPage } from "../films.actions";
 import { connect } from "react-redux";
 import { selectedPagesCount } from "../films.selectors";
 
-const MyPagination = ({ pagesCount }) => {
+const MyPagination = ({ pagesCount, filmsByPage  }) => {
   const [pages, setPage] = useState(1);
 
   useEffect(() => {

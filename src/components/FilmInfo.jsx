@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getDescription } from "../films.gatawey";
 
 const FilmInfo = (props) => {
   const {

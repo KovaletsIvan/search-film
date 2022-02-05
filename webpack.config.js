@@ -31,6 +31,7 @@ module.exports = (env, argv) => {
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: "./src/index.html",
+        favicon: "./src/images/favicon.ico",
       }),
     ],
     resolve: {
