@@ -1,6 +1,6 @@
 export const getData = () =>
   fetch(
-    "https://api.themoviedb.org/3/movie/popular?api_key=a41b56e2d83785d93072426a729e2e4e&language=en-US&page=1"
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=a41b56e2d83785d93072426a729e2e4e&language=en-US&page=1"
   ).then((res) => res.json());
 
 export const getDataByPage = (page) =>
