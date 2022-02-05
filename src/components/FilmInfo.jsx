@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 const FilmInfo = (props) => {
   const {
@@ -10,9 +9,14 @@ const FilmInfo = (props) => {
     release_date,
     overview,
   } = props.films;
+  console.log(props);
 
   return (
-    <div id={id} className="filminfo">
+    <div
+      id={id}
+      className="filminfo"
+      onClick={props.showInfoWindow}
+    >
       <img
         id={id}
         className="filminfo__img"
@@ -32,10 +36,4 @@ const FilmInfo = (props) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    description: state.description,
-  };
-};
-
-export default connect(mapState)(FilmInfo);
+export default FilmInfo;
