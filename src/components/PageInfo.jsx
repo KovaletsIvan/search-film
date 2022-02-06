@@ -3,7 +3,7 @@ import React from "react";
 const PageInfo = ({ filmId, films, showInfoWindow }) => {
   const film = films.filter((elem) => elem.id == filmId);
   const [filmObj] = film;
-  const { backdrop_path, title } = filmObj;
+  const { backdrop_path, title, overview } = filmObj;
 
   return (
     <div
@@ -23,6 +23,7 @@ const PageInfo = ({ filmId, films, showInfoWindow }) => {
         </div>
         <div className="pageinfo__description">
           <div className="pageinfo__description-title">{title}</div>
+          <div className="pageinfo__description-overview">{overview}</div>
         </div>
       </div>
     </div>

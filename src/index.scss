@@ -199,6 +199,7 @@ body {
     @media screen and (max-width: 850px) {
       flex-direction: column;
       width: 95%;
+      height: auto;
     }
   }
   &__filmdata-blockimage {
@@ -229,6 +230,10 @@ body {
       text-transform: uppercase;
       font-size: 50px;
       font-weight: 400;
+    }
+    &-overview {
+      color: #00cc00;
+      margin: 10px 30px;
     }
   }
 }
