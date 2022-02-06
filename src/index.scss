@@ -156,3 +156,47 @@ body {
     margin: 10px;
   }
 }
+
+.pageinfo {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+
+  &__filmdata {
+    display: flex;
+    background-color: #262626;
+    border: 1px solid #a6a6a6;
+    border-radius: 6px;
+    height: 60%;
+    width: 60%;
+    cursor: pointer;
+  }
+  &__filmdata-blockimage {
+    height: 100%;
+    width: 30%;
+
+    &_img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__description {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-title {
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: 400;
+    }
+  }
+}

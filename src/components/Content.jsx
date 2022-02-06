@@ -25,14 +25,7 @@ class Content extends React.Component {
     });
   };
 
-  getFilm = () => {
-    console.log(
-      this.props.selectedFilms.filter((film) => film.id === this.state.filmId)
-    );
-  };
-
   render() {
-    console.log(this.state);
     if (!this.state.filmInfoShow) {
       return (
         <div className="content">
@@ -49,7 +42,11 @@ class Content extends React.Component {
       );
     }
     return (
-      <PageInfo filmId={this.state.filmId} films={this.props.selectedFilms} />
+      <PageInfo
+        filmId={this.state.filmId}
+        films={this.props.selectedFilms}
+        showInfoWindow={this.showInfoWindow}
+      />
     );
   }
 }
