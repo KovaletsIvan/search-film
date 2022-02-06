@@ -12,7 +12,7 @@ const MyPagination = ({ pagesCount, filmsByPage  }) => {
   }, [pages]);
 
   return (
-    <div className="pagination">
+    <div className="mypagination">
       <Pagination
         count={pagesCount}
         size="large"

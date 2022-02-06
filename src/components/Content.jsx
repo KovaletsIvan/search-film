@@ -5,7 +5,8 @@ import { selectedFilms } from "../films.selectors";
 import FilmInfo from "./FilmInfo";
 import PageInfo from "./PageInfo";
 import SearchField from "./SearchField";
-import MyPagination from "./Pagination";
+import MyPagination from "./MyPagination";
+import MinPagination from "./MinPagination";
 
 class Content extends React.Component {
   state = {
@@ -38,6 +39,7 @@ class Content extends React.Component {
             />
           ))}
           <MyPagination />
+          <MinPagination />
         </div>
       );
     }
