@@ -13,11 +13,12 @@ const MyPagination = ({ pagesCount, filmsByPage }) => {
 
   return (
     <div className="mypagination">
-      <Pagination 
-      count={pagesCount} 
-      defaultPage={1} 
-      siblingCount={0} 
-      onChange={(e, value) => setPage(value)}/>
+      <Pagination
+        count={pagesCount}
+        defaultPage={1}
+        siblingCount={0}
+        onChange={(e, value) => setPage(value)}
+      />
     </div>
   );
 };
