@@ -278,6 +278,10 @@ body {
 
     &-block {
       margin: 3%;
+      @media screen and (max-width: 850px) {
+        width: 120%;
+      }
+
       &-info {
         display: flex;
         justify-content: center;
