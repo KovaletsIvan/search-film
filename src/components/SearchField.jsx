@@ -15,11 +15,13 @@ const SearchField = (props) => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button
-          className="serchfield__label-btn"
-          onClick={() => props.getFilm(value)}
-        >
-          <Link className="link" to="/search">
+        <button className="serchfield__label-btn">
+          <Link
+            className="link"
+            to="/search"
+            style={{ pointerEvents: value.length === 0 ? "none" : "auto" }}
+            onClick={() => props.getFilm(value)}
+          >
             Search
           </Link>
         </button>

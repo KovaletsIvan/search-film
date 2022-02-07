@@ -7,27 +7,23 @@ import SearchField from "./SearchField";
 const SerchedPage = (props) => {
   if (props.selectedFilms.length === 0) {
     return (
-      <div className="content">
-        <div className="films">
-          <SearchField />
-          <h1 className="notfound">Film not found</h1>
-        </div>
+      <div className="films">
+        <SearchField />
+        <h1 className="notfound">Film not found</h1>
       </div>
     );
   }
   if (!props.showFilm) {
     return (
-      <div className="content">
-        <div className="films">
-          <SearchField />
-          {props.selectedFilms.map((elem) => (
-            <FilmInfo
-              key={elem.id}
-              films={elem}
-              showInfoWindow={props.showInfoWindow}
-            />
-          ))}
-        </div>
+      <div className="films">
+        <SearchField />
+        {props.selectedFilms.map((elem) => (
+          <FilmInfo
+            key={elem.id}
+            films={elem}
+            showInfoWindow={props.showInfoWindow}
+          />
+        ))}
       </div>
     );
   }
