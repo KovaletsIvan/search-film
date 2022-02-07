@@ -7,8 +7,8 @@ import FilmInfo from "./FilmInfo";
 import PageInfo from "./PageInfo";
 import SearchField from "./SearchField";
 import MyPagination from "./MyPagination";
-import MinPagination from "./MinPagination";
 import SerchedPage from "./SerchedPage";
+import Spinner from "./Spinner";
 
 class Content extends React.Component {
   state = {
@@ -29,6 +29,7 @@ class Content extends React.Component {
   };
 
   render() {
+    const spiner = this.props.selectedFilms.length > 0 ? null : <Spinner />;
     if (!this.state.filmInfoShow) {
       return (
         <div className="content">
@@ -36,6 +37,7 @@ class Content extends React.Component {
             <Switch>
               <Route exact path="/">
                 <SearchField />
+                {spiner}
                 <div className="films">
                   {this.props.selectedFilms.map((elem) => (
                     <FilmInfo
@@ -46,7 +48,6 @@ class Content extends React.Component {
                   ))}
                 </div>
                 <MyPagination />
-                <MinPagination />
               </Route>
               <Route path="/search">
                 <SerchedPage
