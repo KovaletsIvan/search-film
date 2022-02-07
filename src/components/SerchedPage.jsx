@@ -13,17 +13,26 @@ const SerchedPage = (props) => {
       </div>
     );
   }
+  if (!props.showFilm) {
+    return (
+      <div className="content">
+        <SearchField />
+        {props.selectedFilms.map((elem) => (
+          <FilmInfo
+            key={elem.id}
+            films={elem}
+            showInfoWindow={props.showInfoWindow}
+          />
+        ))}
+      </div>
+    );
+  }
   return (
-    <div className="content">
-      <SearchField />
-      {props.selectedFilms.map((elem) => (
-        <FilmInfo
-          key={elem.id}
-          films={elem}
-          showInfoWindow={props.showInfoWindow}
-        />
-      ))}
-    </div>
+    <PageInfo
+      filmId={props.filmId}
+      films={props.selectedFilms}
+      showInfoWindow={props.showInfoWindow}
+    />
   );
 };
 

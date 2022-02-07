@@ -9,7 +9,6 @@ import SearchField from "./SearchField";
 import MyPagination from "./MyPagination";
 import MinPagination from "./MinPagination";
 import SerchedPage from "./SerchedPage";
-import { Router } from "@material-ui/icons";
 
 class Content extends React.Component {
   state = {
@@ -48,7 +47,12 @@ class Content extends React.Component {
                 <MinPagination />
               </Route>
               <Route path="/search">
-                <SerchedPage />
+                <SerchedPage
+                  showFilm={this.state.filmInfoShow}
+                  filmId={this.state.filmId}
+                  films={this.props.selectedFilms}
+                  showInfoWindow={this.showInfoWindow}
+                />
               </Route>
             </Switch>
           </BrowserRouter>
