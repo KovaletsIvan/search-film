@@ -36,13 +36,15 @@ class Content extends React.Component {
             <Switch>
               <Route exact path="/">
                 <SearchField />
-                {this.props.selectedFilms.map((elem) => (
-                  <FilmInfo
-                    key={elem.id}
-                    films={elem}
-                    showInfoWindow={this.showInfoWindow}
-                  />
-                ))}
+                <div className="films">
+                  {this.props.selectedFilms.map((elem) => (
+                    <FilmInfo
+                      key={elem.id}
+                      films={elem}
+                      showInfoWindow={this.showInfoWindow}
+                    />
+                  ))}
+                </div>
                 <MyPagination />
                 <MinPagination />
               </Route>
