@@ -4,7 +4,7 @@ import { filmsByPage } from "../films.actions";
 import { connect } from "react-redux";
 import { selectedPagesCount } from "../films.selectors";
 
-const MyPagination = ({ pagesCount, filmsByPage  }) => {
+const MyPagination = ({ pagesCount, filmsByPage }) => {
   const [pages, setPage] = useState(1);
 
   useEffect(() => {
@@ -13,13 +13,11 @@ const MyPagination = ({ pagesCount, filmsByPage  }) => {
 
   return (
     <div className="mypagination">
-      <Pagination
-        count={pagesCount}
-        size="large"
-        variant="text"
-        variant="outlined"
-        onChange={(e, value) => setPage(value)}
-      />
+      <Pagination 
+      count={pagesCount} 
+      defaultPage={1} 
+      siblingCount={0} 
+      onChange={(e, value) => setPage(value)}/>
     </div>
   );
 };
