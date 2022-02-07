@@ -101,7 +101,7 @@ body {
     margin-top: 4px;
     padding: 6px;
     border-radius: 2px;
-    height: 30px;
+    height: 40px;
     width: 330px;
     font-size: 15px;
     border: 1px solid #a6a6a6;
@@ -235,10 +235,17 @@ body {
     flex-direction: column;
 
     &-title {
+      display: flex;
+      justify-self: center;
+      align-items: center;
       margin: 20px;
       text-transform: uppercase;
       font-size: 50px;
       font-weight: 400;
+
+      @media screen and (max-width: 850px) {
+        font-size: 30px;
+      }
     }
     &-overview {
       color: #00cc00;
