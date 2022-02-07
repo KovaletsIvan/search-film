@@ -8,22 +8,26 @@ const SerchedPage = (props) => {
   if (props.selectedFilms.length === 0) {
     return (
       <div className="content">
-        <SearchField />
-        <h1 className="notfound">Film not found</h1>
+        <div className="films">
+          <SearchField />
+          <h1 className="notfound">Film not found</h1>
+        </div>
       </div>
     );
   }
   if (!props.showFilm) {
     return (
       <div className="content">
-        <SearchField />
-        {props.selectedFilms.map((elem) => (
-          <FilmInfo
-            key={elem.id}
-            films={elem}
-            showInfoWindow={props.showInfoWindow}
-          />
-        ))}
+        <div className="films">
+          <SearchField />
+          {props.selectedFilms.map((elem) => (
+            <FilmInfo
+              key={elem.id}
+              films={elem}
+              showInfoWindow={props.showInfoWindow}
+            />
+          ))}
+        </div>
       </div>
     );
   }
