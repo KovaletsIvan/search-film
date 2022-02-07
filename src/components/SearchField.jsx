@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getFilm } from "../films.actions";
+import { getFilm, recivedPages } from "../films.actions";
 
 const SearchField = (props) => {
   const [value, setValue] = useState("");
@@ -16,9 +17,11 @@ const SearchField = (props) => {
         />
         <button
           className="serchfield__label-btn"
-          onClick={()=>props.getFilm(value)}
+          onClick={() => props.getFilm(value)}
         >
-          Search
+          <Link className="link" to="/search">
+            Search
+          </Link>
         </button>
       </div>
     </div>
@@ -27,6 +30,7 @@ const SearchField = (props) => {
 
 const mapDispatch = {
   getFilm: getFilm,
+  recivedPages: recivedPages,
 };
 
 export default connect(null, mapDispatch)(SearchField);

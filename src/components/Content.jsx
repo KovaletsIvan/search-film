@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { recivedFilms, recivedPages } from "../films.actions";
 import { selectedFilms } from "../films.selectors";
@@ -7,6 +8,8 @@ import PageInfo from "./PageInfo";
 import SearchField from "./SearchField";
 import MyPagination from "./MyPagination";
 import MinPagination from "./MinPagination";
+import SerchedPage from "./SerchedPage";
+import { Router } from "@material-ui/icons";
 
 class Content extends React.Component {
   state = {
@@ -30,16 +33,25 @@ class Content extends React.Component {
     if (!this.state.filmInfoShow) {
       return (
         <div className="content">
-          <SearchField />
-          {this.props.selectedFilms.map((elem) => (
-            <FilmInfo
-              key={elem.id}
-              films={elem}
-              showInfoWindow={this.showInfoWindow}
-            />
-          ))}
-          <MyPagination />
-          <MinPagination />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                <SearchField />
+                {this.props.selectedFilms.map((elem) => (
+                  <FilmInfo
+                    key={elem.id}
+                    films={elem}
+                    showInfoWindow={this.showInfoWindow}
+                  />
+                ))}
+                <MyPagination />
+                <MinPagination />
+              </Route>
+              <Route path="/search">
+                <SerchedPage />
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </div>
       );
     }

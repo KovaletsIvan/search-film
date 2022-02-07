@@ -13,11 +13,11 @@ export const getFilmsData = (results) => {
   };
 };
 
-export const serchFilm = (results) => {
+export const serchFilm = (data) => {
   return {
     type: FILMS_SEARCH,
     payload: {
-      results,
+      data,
     },
   };
 };

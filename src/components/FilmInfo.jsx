@@ -9,7 +9,7 @@ const FilmInfo = (props) => {
     release_date,
     overview,
   } = props.films;
-
+  
 
   return (
     <div id={id} className="filminfo" onClick={props.showInfoWindow}>
