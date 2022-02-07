@@ -10,14 +10,13 @@ const FilmInfo = (props) => {
     overview,
   } = props.films;
 
-
   return (
     <div id={id} className="filminfo" onClick={props.showInfoWindow}>
       <img
         id={id}
         className="filminfo__img"
         src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-        alt="./images/logo-not-found.png"
+        alt="film-poster"
       />
       <p id={id} className="description">
         {overview}
