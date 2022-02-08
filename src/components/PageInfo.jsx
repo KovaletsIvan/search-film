@@ -18,7 +18,7 @@ const PageInfo = ({ filmId, films, showInfoWindow }) => {
       className="pageinfo"
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`,
-        backgroundSize: "auto",
+        backgroundSize: "cover",
       }}
     >
       <div className="pageinfo__filmdata" onClick={showInfoWindow}>
